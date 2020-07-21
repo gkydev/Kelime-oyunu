@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <style>
+            .form__group {
+            position: relative;
+            padding: 15px 0 0;
+            margin-top: 5%;
+            width: 25%;
+            }
+
+            .form__field {
+            font-family: inherit;
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid #9b9b9b;
+            outline: 0;
+            font-size: 50px;
+            color: black;
+            text-align: center;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+
+            &::placeholder {
+                color: transparent;
+            }
+
+            &:placeholder-shown ~ .form__label {
+                font-size: 1.3rem;
+                cursor: text;
+                top: 20px;
+            }
+            }
+
+            .form__label {
+            position: absolute;
+            top: 0;
+            display: block;
+            transition: 0.2s;
+            font-size: 75px;
+            color: $gray;
+            }
+
+            .form__field:focus {
+            ~ .form__label {
+                position: absolute;
+                top: 0;
+                display: block;
+                transition: 0.2s;
+                font-size: 75px;
+                color: black;
+                font-weight:700;    
+            }
+            padding-bottom: 6px;  
+            font-weight: 700;
+            border-width: 2px;
+            border-image: linear-gradient(to right, black,black);
+            border-image-slice: 1;
+            }
+            /* reset input */
+            .form__field{
+            &:required,&:invalid { box-shadow:none; }
+            }
+            /* demo */
+            body {
+            font-family: 'Fauna One', sans-serif; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 1.5rem;
+            background-color: white;
+            }
+            .myButton {
+                background-color:#0a0a0a;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff;
+                font-size:17px;
+                padding:18px 48px;
+                text-decoration:none;
+            }
+            .myButton:hover {
+                background-color:#0f0f0f;
+            }
+            .myButton:active {
+                position:relative;
+                top:1px;
+            }
+
+                    
+        </style>
+    <title>Kelime Oyunu </title>
+    <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+    <div style="font-family: 'Fauna One', serif;font-size: 100px; color: #222222;"> Harfleri Giriniz. </div>
+        <div class="form__group field">
+            <form method="POST" action="kelimeoyunu-chosen-get" >
+            <input type="input" class="form__field" placeholder="Harfler" name="letters" id='letters' required oninput="this.value = this.value.toUpperCase()" />
+            <center><input type="submit" class= "myButton" style="margin-top: 5%;font-family: 'Fauna One', serif"></center>
+            <center><h2 style="margin-top: 5%;font-family: 'Fauna One', serif">{{ error }} </h2></center>
+        </form>
+        </div>
+        
+    
+    </body>
+
+    
